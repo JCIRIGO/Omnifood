@@ -1,0 +1,384 @@
+/*  NOTES
+rem and em do not depend on html font-size in media queries. 1rem = 1em = 16px
+we should use 'em' instead of 'rem' in media queries as 'rem' fails in some browsers 
+*/
+/* 
+Typography
+    Font size system (px)
+        10, 12, 14, 16, 18, 20, 24, 30, 36, 44, 52, 62, 74, 86, 98
+    Font weight system
+        400, 500, 600, 700
+    Line height system
+        1, 1.05, 1.2, 1.6, 1,8
+    Letter spacing
+        -0.5, 0.75
+Border-radius
+    9px 10px
+Whitespace
+    Spacing system (px)
+    2, 4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 128
+Visual Hierarchy                            
+*/
+/* ************************************************* */
+                        /* SMALL DESKTOPS */
+                     /* bellow 1344 px = 84m*/
+/* ************************************************* */
+@media(max-width: 84em){
+    .hero{
+        max-width: 120rem;
+    }
+    .heading-1{
+        font-size: 4.4rem;
+    }
+}
+/* ************************************************* */
+                        /* LANDSCAPE TABLETS  */
+                     /* bellow 1200 px = 75em*/
+/* ************************************************* */
+@media(max-width: 75em){
+    html{
+        /* font-size to  9px */
+        font-size: 56.25%; 
+    }
+    .heading-2{
+        font-size: 3.6rem;
+        margin-bottom: 8rem;
+    }
+    .heading-3{
+        font-size: 2.4rem;
+    }
+    .grid{
+        column-gap: 4.8rem;
+        row-gap: 6.4rem;
+    }
+    .section-header{
+    padding: 0 3.2rem;
+    }
+    .nav-list{
+        gap: 3.2rem;
+    }
+    .hero{
+        gap: 4.8rem;
+    }
+    .testimonial-grid{
+        row-gap: 2.4rem;
+        column-gap: 1.6rem;
+    }
+}
+/* ************************************************* */
+                        /*  TABLETS  */
+                     /* bellow 944 px = 59em*/
+/* ************************************************* */
+@media(max-width: 59em){
+    html{
+        /* font-size to  9px */
+        font-size: 50%; 
+    }
+    .heading-2{
+        margin-bottom: 6.4rem;
+    }
+    .grid{
+        column-gap: 4.8rem;
+        row-gap: 6.4rem;
+    }
+    .hero{
+        grid-template-columns: 1fr;
+        padding: 0 8rem;
+        gap: 6.4;
+    }
+    .hero-box-text,
+    .hero-box-img{
+        text-align: center;
+    }
+    .hero-text{
+        padding: 0 1.2rem 0 1.2rem;
+    }
+    .hero-delivered{
+        justify-content: center;
+        margin-top: 3.2rem;
+    }
+    .hero-img{
+        width: 60%;
+    }
+    .logos{
+        height: 2.4rem;
+    }
+    .box-number{
+        font-size: 7.4rem;
+    }
+    .meal-box {
+        padding: 2rem 3.2rem 4.8rem 3.2rem;
+    }
+    .testimonial-box{
+        padding: 1rem;
+    }
+    .testimonial-text{
+        padding-bottom: 1rem;
+        line-height: 1.4;
+    }
+    .features-box{
+        text-align: center;
+    }
+    .sample-container{
+        grid-template-columns: 3fr 2fr;
+    }
+    .sample-inputs{
+    grid-template-columns: 1fr;
+        
+    }
+    /* MOBILE NAVIGATION */
+    .header-nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 20%;
+        background-color: rgba(255, 255, 255, 0.8);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* We need to hide navigation
+        but using display: none; doens't allow transitions */
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in;
+    }
+    .nav-open .header-nav{
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    .nav-list{
+        flex-direction: column;
+        gap: 4.8rem;
+    }
+    .nav-link:link, 
+    .nav-link:visited{
+        font-size: 3rem;
+    }
+    .btn-mobile-nav{
+        display: block;
+        z-index: 9999;
+    }
+    .nav-open .icon-mobile-nav[name="menu-outline"]{
+        display: none;
+    }
+    .nav-open .icon-mobile-nav[name="close-outline"]{
+        display: block;
+    }
+    .footer-box img{
+        height: 2.4rem;
+        margin-bottom: 1rem;
+    }
+}
+/* ************************************************* */
+                        /* SMALL TABLETS  */
+                     /* bellow 752 px = 47em*/
+/* ************************************************* */
+@media(max-width: 47em){
+    .heading-2{
+        margin-bottom: 4.8rem;
+    }
+    .grid-3,
+    .grid-4{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .diets{
+        grid-column: 1 /    -1;
+        justify-self: center;
+        box-shadow: none;
+        transition: none;
+    }
+    .diet-box {
+        padding: 0;
+    }
+    .testimonial-grid{
+        grid-template-columns: repeat(3, 1fr);   
+    }
+    .test-overflow:last-child{
+        grid-column: 2 / 3;
+    }
+    .testimonial-text {
+        font-size: 1.7rem;
+    }
+    .price-card{
+        width: 100%;
+    }
+    .footer-grid{
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .footer-nav-box{
+        grid-row: 1;
+        grid-column: span 2;
+    }
+    .footer-logo-box{
+        grid-column: span 3;
+    }
+    .footer-address-box{
+        grid-column: span 3;
+    }
+    .footer-box img{
+        height: 2.8rem;
+        margin-bottom: 1rem;
+    }
+}
+/* ************************************************* */
+                            /* PHONES  */
+                     /* bellow 560 px = 35em*/
+/* ************************************************* */
+@media(max-width: 35em){
+    .grid{
+        row-gap: 4.8rem;
+    }
+    .grid-2,
+    .grid-3,
+    .grid-4{
+        grid-template-columns: 1fr;
+    }
+    .btn, 
+    .btn:link, 
+    .btn:visited{
+        padding: 2.4rem 1.6rem;
+    }
+    .section-hero {
+        padding: 2.4rem 0 5.4rem 0;
+    }
+    .hero{
+        padding: 0 3.2rem;
+    }
+    .section-featured {
+        padding: 4.8rem 0 2.4rem 0;
+    }
+    .section-how {
+        padding: 6.6rem 0 5.4rem 0;
+    }
+    .hero-img {
+        width: 80%;
+    }
+    .logos{
+        height: 1.2rem;
+    }
+    .how-box-img:nth-child(2) {
+        grid-row: 1;
+    }
+    .how-box-img:nth-child(6) {
+        grid-row: 5;
+    }
+    .how-box-img{
+        transform: translateY(30px);
+    }
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonial-text {
+        font-size: 1.5rem;
+    }
+    .testimonial-name{
+        font-size: 1.5rem;
+    }
+    .test-overflow:nth-child(8) {
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .test-overflow:nth-child(15) {
+        grid-row: 5;
+        grid-column: 1;
+    }
+    .test-overflow:nth-child(12) {
+        grid-row: 6;
+        grid-column: 1;
+    }
+    .test-overflow:nth-child(6),
+    .test-overflow:nth-child(7),
+    .test-overflow:nth-child(11),
+    .test-overflow:nth-child(14) {
+        display: none;
+    }
+    .section-meals {
+        padding: 5.4rem 0;
+    }
+    .section-testimonial {
+        padding: 6.4rem 0;
+    }
+    .section-features {
+        padding: 6.4rem 0 0 0;
+    }
+    .footer-box img {
+        height: 2.4rem;
+    }
+    .footer-icon {
+        font-size: 2.3rem;
+    }
+    .sample-container {
+        grid-template-columns: 1fr;
+    }
+    .sample-box-text {
+        padding: 3.2rem 3.2rem 4.8rem 3.2rem;
+    }
+    .sample-box-img {
+        grid-row: 1;
+        height: 32rem;
+    }
+}
+
+/* ************************************************* */
+                        /* SAFARI GAP FIX*/
+/* ************************************************* */
+/* 
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
+*/
